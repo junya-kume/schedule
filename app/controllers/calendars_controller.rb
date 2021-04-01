@@ -13,8 +13,12 @@ class CalendarsController < ApplicationController
   end
 
   def create
-    Calendar.create(calendar_parameter)
-    redirect_to calendars_path
+    calendar = Calendar.new(calendar_parameter)
+    if calendar.save 
+      redirect_to calendars_path
+    else
+      redirect_to new_calendar_path
+    end
   end
 
   def destroy
