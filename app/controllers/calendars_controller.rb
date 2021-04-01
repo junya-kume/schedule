@@ -1,9 +1,44 @@
 class CalendarsController < ApplicationController
   def index
-    @today = Date.today
-    from_date = Date.new(@today.year, @today.month, @today.beginning_of_month.day).beginning_of_week(:sunday)
-    to_date = Date.new(@today.year, @today.month, @today.end_of_month.day).end_of_week(:sunday)
-    @calendar_data = from_date.upto(to_date)
-    binding.pry
+    @calendars = Calendar.all
   end
+
+  def new
+    @calendar = Calendar.new
+  end
+
+  def show
+    @calendar = Calendar.find(params[:id])
+  end
+
+  def create
+    Calendar.create(calendar_parameter)
+    redirect_to blogs_path
+  end
+
+  def destroy
+    @calendar = Calendar.find(params[:id])
+    @calendar.destroy
+    redirect_to blogs_path, notice:"削除しました"
+  end
+
+  def edit
+    @calendar = Calendar.find(params[:id])
+  end
+
+  def update
+    @calendar = Calendar.find(params[:id])
+    if @calendar.update(calendar_parameter)
+      redirect_to blogs_path, notice: "編集しました"
+    else
+      render 'edit'
+    end
+  end
+
+  private
+
+  def calendar_parameter
+    params.require(:calendar).permit(:title, :content, :start_time)
+  end
+
 end

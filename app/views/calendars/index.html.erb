@@ -1,21 +1,9 @@
-<table>
-  <tr>
-    <% t('date.abbr_day_names').each do |day_name| %>
-      <td>
-        <%= day_name %>
-      </td>
-    <% end %>
-  </tr>
-  <% @calendar_data.each do |date| %>
-    <% if date.wday == 0 %>
-      <tr>
-    <% end %>
-    <td>
-      <%= date.day %>
-    </td>
-    <% if date.wday == 6 %>
-    </tr>
-    <% end %>
+<%= month_calendar events: @calendars do |date, calendars| %>
+  <%= date.day %>
+
+  <% calendars.each do |calendar| %>
+    <div>
+      <%= link_to calendar.title, calendar %>
+    </div>
   <% end %>
-</table>
-<p><%= @today.strftime("< %m / %Y >") %></p>
+<% end %>
