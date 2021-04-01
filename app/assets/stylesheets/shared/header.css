@@ -3,27 +3,25 @@
 }
 
 .top-page-header {
-  background-color: violet;
   width: 100vw;
   padding: 2vh 15vw;
   display: flex;
-  justify-content: right;
+  justify-content: flex-end;
   flex-direction: column;
 }
 
 .nav {
-  background-color: wheat;
   font-size: 18px;
   display: flex;
   width: 100%;
   padding: 1vh 0;
+  justify-content: flex-end;
 }
 
 .lists {
-  background-color: white;
   display: flex;
   list-style: none;
-  align-items: flex-end;
+  justify-content: flex-end;
 }
 
 .user-nickname {
