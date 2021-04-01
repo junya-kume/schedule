@@ -1,0 +1,17 @@
+<p>
+  <strong>タイトル</strong>
+  <%= @calendar.title %>
+</p>
+
+<p>
+  <strong>時間</strong>
+  <%= @calendar.start_time.strftime("%Y-%m-%d %H:%M") %>
+</p>
+
+<p>
+  <strong>内容</strong>
+  <%= @calendar.content %>
+</p>
+
+<%= link_to 'Edit', edit_calendar_path(@calendar) %> |
+<%= link_to 'Back', calendars_path %>

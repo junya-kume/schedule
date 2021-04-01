@@ -1,0 +1,20 @@
+<div class="contents row">
+  <div class="container">
+    <h3>予定を入れる</h3>
+    <%= form_with(model: @calendar, local: true) do |form| %>
+      <div class="">
+        タイトル<br>
+        <%= form.text_field :title, class: "title-text", placeholder: "Title" %>
+      </div>
+      <div class="">
+        日付<br>
+        <%= form.datetime_select :start_time %>
+      </div>
+      <div class="">
+        内容<br>
+        <%= form.text_area :content, class: "title-text", placeholder: "Content", rows:"7", maxlength:"1000" %>
+      </div>
+      <%= form.submit "SEND",value: "送信" %>
+    <% end %>
+  </div>
+</div>

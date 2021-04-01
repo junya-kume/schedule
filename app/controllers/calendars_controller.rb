@@ -13,7 +13,7 @@ class CalendarsController < ApplicationController
 
   def create
     Calendar.create(calendar_parameter)
-    redirect_to blogs_path
+    redirect_to calendars_path
   end
 
   def destroy
