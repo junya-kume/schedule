@@ -1,0 +1,21 @@
+.show-top{
+  text-align: center;
+}
+.show-time{
+  background-color: aqua;
+  margin-bottom: 50px;
+}
+.show-title{
+  background-color: aquamarine;
+  margin-bottom: 50px;
+}
+.show-content{
+  background-color: azure;
+  margin-bottom: 50px;
+}
+.show-under{
+  background-color: beige;
+}
+.texts{
+  text-decoration: underline;
+}

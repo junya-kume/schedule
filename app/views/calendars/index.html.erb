@@ -1,3 +1,5 @@
+<%= render "header" %>
+
 <%= link_to '予定を入れる', new_calendar_path %>
 <%= month_calendar events: @calendars do |date, calendars| %>
   <%= date.day %>
