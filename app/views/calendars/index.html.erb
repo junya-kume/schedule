@@ -6,7 +6,11 @@
 
   <% calendars.each do |calendar| %>
     <div>
-      <%= link_to calendar.title, calendar %>
+    <% if user_signed_in? %>
+      <% if calendar.user_id == current_user.id %>
+        <%= link_to calendar.title, calendar %>
+      <% end %>
+    <% end %>
     </div>
   <% end %>
 <% end %>
