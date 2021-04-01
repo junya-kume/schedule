@@ -34,6 +34,7 @@
 .logout {
   text-decoration: none;
   color: #333333;
+  margin-left: 5px;
 }
 
 .login {
