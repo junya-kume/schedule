@@ -13,11 +13,11 @@ class CalendarsController < ApplicationController
   end
 
   def create
-    calendar = Calendar.new(calendar_parameter)
-    if calendar.save 
+    @calendar = Calendar.new(calendar_parameter)
+    if @calendar.save
       redirect_to calendars_path
     else
-      redirect_to new_calendar_path
+      render 'new'
     end
   end
 
@@ -36,6 +36,7 @@ class CalendarsController < ApplicationController
     if @calendar.update(calendar_parameter)
       redirect_to calendars_path, notice: "編集しました"
     else
+      binding.pry
       render 'edit'
     end
   end

@@ -1,9 +1,6 @@
 class Calendar < ApplicationRecord
   belongs_to :user
 
-  with_options presence: true do
-    validates :title
-    validates :content
-    validates :start_time
-  end
+  validates :title, presence: true, length: { maximum: 50 }
+  validates :start_time, presence: true
 end

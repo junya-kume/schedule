@@ -1,20 +1,25 @@
 <%= render "header" %>
-<div class="show-top">
-  <div class="show-time">
-    <%= @calendar.start_time.strftime("%Y-%m-%d %H:%M") %>
-  </div>
+<div class="contents row">
+  <div class="container">
+    <div class="show-top">
+      <div class="show-time">
+        <%= @calendar.start_time.strftime("%Y-%m-%d %H:%M") %>
+      </div>
 
-  <div class="show-title">
-    <div><span class="texts">タイトル</span></div>
-    <%= @calendar.title %>
-  </div>
+      <div class="show-title">
+        <div><span class="texts">タイトル</span></div>
+        <%= @calendar.title %>
+      </div>
 
-  <div class="show-content">
-    <div><span class="texts">内容</span></div>
-    <%= @calendar.content %>
+      <div class="show-content">
+        <div><span class="texts">内容</span></div>
+        <%= @calendar.content %>
+      </div>
+      <div class="show-under">
+        <%= link_to '編集', edit_calendar_path(@calendar),method: :get %> |
+        <%= link_to '削除', calendar_path(@calendar),method: :delete %> |
+        <%= link_to '戻る', calendars_path %>
+      </div>
+    </div>
   </div>
-  <div class="show-under">
-    <%= link_to '編集', edit_calendar_path(@calendar) %> |
-    <%= link_to '戻る', calendars_path %>
-  </div>
- </div>
+</div>

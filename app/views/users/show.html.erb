@@ -1,9 +1,14 @@
 <div class="contents row">
-  <p><%= @nickname %>さんの投稿一覧</p>
-  <% @calendars.each do |calendar| %>
-    <div class="content_post">
-      <p><%= calendar.title %></p>
-      <span class="name"><%= calendar.title %></span>
+  <div class="container">
+    <div class="show-top">
+      <p><%= @nickname %>さんの予定一覧</p>
+      <% @calendars.each do |calendar| %>
+        <div class="show-time">
+          <%= calendar.start_time.strftime("%Y-%m-%d %H:%M") %>
+          <%= link_to calendar.title, calendar %>
+        </div>
+      <% end %>
+      <%= link_to '戻る', calendars_path %>
     </div>
-  <% end %>
+  </div>
 </div>
