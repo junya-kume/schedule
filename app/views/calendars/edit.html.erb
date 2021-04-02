@@ -1,0 +1,24 @@
+<%= render "header" %>
+
+<div class="contents row">
+  <div class="container">
+    <h3>予定を編集する</h3>
+    <%= form_with(model: @calendar, local: true) do |f| %>
+    <%= render 'shared/error_messages', model: f.object %>
+      <div class="">
+        タイトル<br>
+        <%= f.text_field :title, class: "title-text", placeholder: "Title" %>
+      </div>
+      <div class="">
+        日付<br>
+        <%= f.datetime_select :start_time, {use_month_numbers: true, start_year: Date.today.year, datetime_separator: '<div class="fb-txt font-weight-bold my-2">時間</div>'},{class: "form-control", id: 'ymd-date'} %>
+      </div>
+      <div class="">
+        内容<br>
+        <%= f.text_area :content, class: "title-text", placeholder: "Content", rows:"7", maxlength:"1000" %>
+      </div>
+      <%= f.submit "SEND",value: "送信" %>
+    <% end %>
+    <%= link_to '戻る', calendars_path %>
+  </div>
+</div>

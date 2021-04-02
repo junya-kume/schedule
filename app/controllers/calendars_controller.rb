@@ -24,7 +24,7 @@ class CalendarsController < ApplicationController
   def destroy
     @calendar = Calendar.find(params[:id])
     @calendar.destroy
-    redirect_to blogs_path, notice:"削除しました"
+    redirect_to calendars_path, notice:"削除しました"
   end
 
   def edit
@@ -34,7 +34,7 @@ class CalendarsController < ApplicationController
   def update
     @calendar = Calendar.find(params[:id])
     if @calendar.update(calendar_parameter)
-      redirect_to blogs_path, notice: "編集しました"
+      redirect_to calendars_path, notice: "編集しました"
     else
       render 'edit'
     end
